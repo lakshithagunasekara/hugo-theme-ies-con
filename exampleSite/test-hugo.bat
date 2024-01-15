@@ -10,7 +10,7 @@ if not "%~1"=="" (
 
 set "versionFile=..\layouts\partials\version.txt"
 if not exist "%versionFile%" (
-    set "versionFile=..\hugo-theme-relearn\layouts\partials\version.txt"
+    set "versionFile=..\hugo-theme-ies-con\layouts\partials\version.txt"
 )
 set /p version=<"%versionFile%"
 echo %version%>"metrics.%version%%hugo_prefix%%hugo_version%.log"
@@ -19,13 +19,13 @@ set config=--environment testing
 if exist "config\testing" (
     rem Seems we are in the themes exampleSite, no need to copy anything
 ) else if exist "config.toml" (
-    set config=--config config.toml,..\hugo-theme-relearn\exampleSite\config\testing\hugo.toml
+    set config=--config config.toml,..\hugo-theme-ies-con\exampleSite\config\testing\hugo.toml
 ) else if exist "hugo.toml" (
-    set config=--config hugo.toml,..\hugo-theme-relearn\exampleSite\config\testing\hugo.toml
+    set config=--config hugo.toml,..\hugo-theme-ies-con\exampleSite\config\testing\hugo.toml
 ) else if exist "config" (
-    copy /e /i /y "..\hugo-theme-relearn\exampleSite\config\testing" "config\testing"
+    copy /e /i /y "..\hugo-theme-ies-con\exampleSite\config\testing" "config\testing"
 ) else if exist "hugo" (
-    copy /e /i /y "..\hugo-theme-relearn\exampleSite\config\testing" "hugo\testing"
+    copy /e /i /y "..\hugo-theme-ies-con\exampleSite\config\testing" "hugo\testing"
 )
 
 hugo%hugo_version% %config% --templateMetrics --templateMetricsHints --printI18nWarnings --printPathWarnings --printUnusedTemplates --cleanDestinationDir --destination "public.%version%%hugo_prefix%%hugo_version%" >> "metrics.%version%%hugo_prefix%%hugo_version%.log"

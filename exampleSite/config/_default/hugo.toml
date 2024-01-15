@@ -22,7 +22,7 @@ uglyURLs = false    # true -> basic/index.html -> basic.html
 themesdir = "../.."
 # yeah, well, obviously a mandatory setting for your site, if you want to
 # use this theme ;-)
-theme = "hugo-theme-relearn"
+theme = "hugo-theme-ies-con"
 
 # make sure your defaultContentLanguage is the first one in the [languages]
 # array below, as the theme needs to make assumptions on it
@@ -91,7 +91,7 @@ title = "Hugo Relearn Theme"
   [[languages.en.menu.shortcuts]]
     name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
     identifier = "ds"
-    url = "https://github.com/McShelby/hugo-theme-relearn"
+    url = "https://github.com/lakshithagunasekara/hugo-theme-ies-con"
     weight = 10
 
   [[languages.en.menu.shortcuts]]
@@ -135,7 +135,7 @@ title = "Hugo Relearn Theme"
   [[languages.pir.menu.shortcuts]]
     name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
     identifier = "ds"
-    url = "https://github.com/McShelby/hugo-theme-relearn"
+    url = "https://github.com/lakshithagunasekara/hugo-theme-ies-con"
     weight = 10
 
   [[languages.pir.menu.shortcuts]]

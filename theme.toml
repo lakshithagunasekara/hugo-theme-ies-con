@@ -1,8 +1,8 @@
 name = "Relearn"
 license = "MIT"
-licenselink = "https://github.com/McShelby/hugo-theme-relearn/blob/main/LICENSE"
+licenselink = "https://github.com/lakshithagunasekara/hugo-theme-ies-con/blob/main/LICENSE"
 description = "A theme for Hugo designed for documentation"
-homepage = "https://github.com/McShelby/hugo-theme-relearn"
+homepage = "https://github.com/lakshithagunasekara/hugo-theme-ies-con"
 demosite = "https://mcshelby.github.io/hugo-theme-relearn"
 tags = ["dark", "dark mode", "docs", "light", "multilingual", "responsive"]
 features = ["badges", "breadcrumbs", "boxes", "buttons",
@@ -27,8 +27,8 @@ features = ["badges", "breadcrumbs", "boxes", "buttons",
     min = "0.112.4"
 
 [author]
-  name = "Sören Weber"
-  homepage = "https://github.com/McShelby"
+  name = "Lakshitha Gunasekara"
+  homepage = "https://github.com/lakshithagunasekara"
 
 [original]
   author = "Mathieu Cornic"
