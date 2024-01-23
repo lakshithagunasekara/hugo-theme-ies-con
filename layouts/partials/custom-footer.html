@@ -3,3 +3,94 @@
   console.log("running some javascript");
 </script>
 -->
+
+<style>
+
+  .custom-footer {
+      background-color: #f8f8f8; /* Adjust the background color as needed */
+      padding: 20px 0;
+      text-align: center;
+  }
+  
+  .footer-section {
+      margin-bottom: 20px;
+  }
+  
+  .section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #ececec; /* Or any color of your choice */
+    margin: 0 5px; /* Adjusts spacing around the heading */
+}
+
+.footer-heading {
+  margin: 0; /* Removes default margin from headings */
+  font-size: 1.015625rem;
+  font-weight: 300;
+
+}
+  
+  .footer-images {
+      display: flex; /* This will align images in a row */
+      justify-content: center; /* Center the images horizontally */
+      flex-wrap: wrap; /* Allows images to wrap to the next line on smaller screens */
+  }
+  
+  .footer-images img {
+      width: 5.25rem;  /* Set a fixed width */
+      height: 100px; /* Set a fixed height */
+      object-fit: contain; /* This will scale the image to fit within the dimensions */
+      margin: 0 10px; /* Maintain some space around images */
+      vertical-align: middle;
+  
+  }
+  
+    </style>
+  
+  <footer class="custom-footer">
+    {{ with .Site.Params.footer.organizersPath }}
+    {{ $organizersPath := . }}
+    {{ $organizersImages := (readDir (printf "static/%s" $organizersPath)) }}
+    {{ if gt (len $organizersImages) 0 }}
+    <div class="footer-section">
+        <div class="section-heading">
+            <span class="divider"></span>
+            <h3 class="footer-heading">Organized by</h3>
+            <span class="divider"></span>
+        </div>
+        <div class="footer-images">
+            {{ range $organizersImages }}
+            <img src="{{ printf "/%s/%s" $organizersPath .Name | relURL }}" alt="Organizer Logo">
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+  
+    {{ with .Site.Params.footer.sponsorsPath }}
+    {{ $sponsorsPath := . }}
+    {{ $sponsorsImages := (readDir (printf "static/%s" $sponsorsPath)) }}
+    {{ if gt (len $sponsorsImages) 0 }}
+    <div class="footer-section">
+        <div class="section-heading">
+            <span class="divider"></span>
+            <h3 class="footer-heading">Sponsored by</h3>
+            <span class="divider"></span>
+        </div>
+        <div class="footer-images">
+            {{ range $sponsorsImages }}
+            <img src="{{ printf "/%s/%s" $sponsorsPath .Name | relURL }}" alt="Sponsor Logo">
+            {{ end }}
+        </div>
+    </div>
+    {{ end }}
+    {{ end }}
+</footer>
+
+  

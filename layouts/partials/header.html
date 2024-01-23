@@ -71,30 +71,32 @@
     {{- partial "custom-header.html" . }}
   </head>
   <body class="mobile-support {{ $outputFormat }}{{- if .Site.Params.disableInlineCopyToClipBoard }} disableInlineCopyToClipboard{{ end }}{{- if .Site.Params.disableHoverBlockCopyToClipBoard }} disableHoverBlockCopyToClipBoard{{ end }}" data-url="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}">
-    <div id="R-body" class="default-animation">
-      <div id="R-body-overlay"></div>
-      <nav id="R-topbar">
-        <div class="topbar-wrapper">
-          <div class="topbar-sidebar-divider"></div>
-          <div class="topbar-area topbar-area-start" data-area="start">
-            {{- partial "topbar/area/start.html" . }}
-          </div>
-          {{- $showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb)) }}
-          {{- if $showBreadcrumb }}
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
-            {{- partial "breadcrumbs.html" (dict "page" .) }}
-          </ol>
-          {{- else }}
-          <span class="topbar-breadcrumbs highlightable">
-            {{ .Title }}
-          </span>
-          {{- end }}
-          <div class="topbar-area topbar-area-end" data-area="end">
-            {{- partial "topbar/area/end.html" . }}
-          </div>
-        </div>
-      </nav>
-      {{- $hook := "styleclass" }}
-      <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable {{ partialCached "archetype.hugo" (dict "hook" $hook "page" . "parameter" . "outputFormat" $outputFormat) .RelPermalink $outputFormat $hook }}" tabindex="-1">
-        <div class="flex-block-wrapper">
+    <div class="full-page">
+      <div class="main-content-wrapper">
+        <div id="R-body" class="default-animation">
+          <div id="R-body-overlay"></div>
+          <nav id="R-topbar">
+            <div class="topbar-wrapper">
+              <div class="topbar-sidebar-divider"></div>
+              <div class="topbar-area topbar-area-start" data-area="start">
+                {{- partial "topbar/area/start.html" . }}
+              </div>
+              {{- $showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb)) }}
+              {{- if $showBreadcrumb }}
+              <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+                {{- partial "breadcrumbs.html" (dict "page" .) }}
+              </ol>
+              {{- else }}
+              <span class="topbar-breadcrumbs highlightable">
+                {{ .Title }}
+              </span>
+              {{- end }}
+              <div class="topbar-area topbar-area-end" data-area="end">
+                {{- partial "topbar/area/end.html" . }}
+              </div>
+            </div>
+          </nav>
+          {{- $hook := "styleclass" }}
+          <div id="R-main-overlay"></div>
+          <main id="R-body-inner" class="highlightable {{ partialCached "archetype.hugo" (dict "hook" $hook "page" . "parameter" . "outputFormat" $outputFormat) .RelPermalink $outputFormat $hook }}" tabindex="-1">
+            <div class="flex-block-wrapper">
