@@ -1,0 +1,164 @@
+<div id="slideshow">
+    <div class="slides-container">
+        {{ $path := printf "/%s" (.Get "path") }}
+        {{ $largeText := .Get "largeText" }}
+        {{ $smallText := .Get "smallText" }}
+        {{ $validExtensions := slice ".jpg" ".jpeg" ".png" }}
+        {{ range $index, $element := (readDir (printf "static/%s" (.Get "path"))) }}
+            {{ $ext := path.Ext $element.Name }}
+            {{ if in $validExtensions $ext }}
+                <div class="slide">
+                    <img src="{{ $path }}/{{ $element.Name }}" alt="{{ $element.Name }}">
+                    {{ if or $largeText $smallText }}
+                        <div class="text-overlay">
+                            {{ if $largeText }}<div class="large-text">{{ $largeText }}</div>{{ end }}
+                            {{ if $smallText }}<div class="small-text">{{ $smallText }}</div>{{ end }}
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <div class="dot-container">
+        {{ range $index, $element := (readDir (printf "static/%s" (.Get "path"))) }}
+            <span class="dot" onclick="currentSlide({{ add $index 1 }})"></span>
+        {{ end }}
+    </div>
+</div>
+
+<style>
+    /* Style the slideshow container */
+    #slideshow {
+        position: relative;
+        margin: auto;
+    }
+
+    /* Style for slides container */
+    .slides-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* Style for each slide */
+    .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    /* Style for images */
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Style for navigation arrows */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    .text-overlay {
+        position: absolute;
+        left: 2.5%; /* Adjust as needed */
+        top: 2.5%; /* Adjust as needed */
+        color: white;
+        text-align: left;
+    }
+
+    .large-text {
+        font-size: 20px; /* Adjust as needed */
+        font-weight: bold;
+    }
+
+    .small-text {
+        font-size: 14px; /* Adjust as needed */
+    }       
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+        left: 0;
+    }
+
+    /* Style for dots container */
+    .dot-container {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Style for dots */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+        background-color: #717171;
+    }
+</style>
+
+<script>
+    let slideIndex = 1;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+    let slideInterval = setInterval(nextSlide, 4000);
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4000);
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 4000);
+        showSlides(slideIndex = n);
+    }
+
+    function nextSlide() {
+        showSlides(slideIndex += 1);
+    }
+
+    function showSlides(n) {
+        let i;
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
