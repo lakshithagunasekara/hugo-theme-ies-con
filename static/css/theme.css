@@ -538,6 +538,19 @@ h1 {
     text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Smaller font size for medium screens */
+    }
+}
+
+/* Small screens (e.g., mobile phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Even smaller font size for small screens */
+    }
+}
+
 body:not(.print) #R-body-inner.narrow h1 {
     border-bottom: 4px solid rgba( 134, 134, 134, .125 );
     font-size: 3.5rem;
