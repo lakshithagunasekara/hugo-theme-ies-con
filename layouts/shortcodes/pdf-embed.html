@@ -1,0 +1,12 @@
+<!-- layouts/shortcodes/pdf-embed.html -->
+<div class="iframe-container" style="width: {{ .Get "width" }}; height: {{ .Get "height" }};">
+    <iframe src="https://docs.google.com/gview?url={{ .Get "url" | absURL }}&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
+</div>
+
+
+<style>
+.iframe-container {
+    position: relative;
+}
+
+</style>

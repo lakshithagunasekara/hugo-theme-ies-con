@@ -68,7 +68,6 @@
     {{- partialCached "favicon.html" . }}
     {{- partialCached "stylesheet.html" (dict "page" . "outputFormat" $outputFormat) $outputFormat }}
     {{- partial "dependencies.html" (dict "page" . "location" "header" "outputFormat" $outputFormat) }}
-    {{- partial "custom-header.html" . }}
   </head>
   <body class="mobile-support {{ $outputFormat }}{{- if .Site.Params.disableInlineCopyToClipBoard }} disableInlineCopyToClipboard{{ end }}{{- if .Site.Params.disableHoverBlockCopyToClipBoard }} disableHoverBlockCopyToClipBoard{{ end }}" data-url="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}">
     <div class="full-page">
@@ -91,6 +90,7 @@
                 {{ .Title }}
               </span>
               {{- end }}
+              {{- partial "custom-header.html" . }}
               <div class="topbar-area topbar-area-end" data-area="end">
                 {{- partial "topbar/area/end.html" . }}
               </div>

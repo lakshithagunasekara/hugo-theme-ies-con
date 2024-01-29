@@ -2,4 +2,65 @@
 <style>
    /* Custom css */
 </style>
--->
+-->   
+
+
+<div class="navbar">
+   <!-- Breadcrumb-->
+   <ul class="nav navbar-nav nav-flex-icons ml-auto">
+     <li class="nav-item">
+       <a href="http://www.ieee-ies.org/" target="_blank" rel="noopener" class="navbar-brand">
+         <img src="/images/ies.png" height="40" alt="">
+       </a>
+     </li>
+     <li class="nav-item">
+       <a href="https://www.ieee.org/" target="_blank" rel="noopener" class="navbar-brand">
+         <img src="/images/ieee.png" height="40" alt="" style="margin-right: 1.4em;">
+       </a>
+     </li>
+   </ul>
+</div>
+
+ <style>
+   /* Style for the entire navbar */
+   .navbar {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 10px;
+       background-color: #fff; /* Set your desired background color */
+   }
+
+   .nav {
+        list-style-type: none; /* Removes the bullets */
+        padding: 0; /* Removes default padding */
+        margin: 0; /* Removes default margin */
+    }
+    
+   /* Style for the right header (image links) */
+   .nav-flex-icons {
+       display: flex;
+       align-items: center;
+   }
+
+   .nav-item {
+       margin-left: 10px; /* Spacing between nav items */
+   }
+
+   .nav-item img {
+       height: 2rem; /* Fixed height for images */
+       width: auto; /* Width is auto to maintain aspect ratio */
+   }
+
+   /* Responsive adjustments */
+   @media (max-width: 768px) {
+       .nav-item {
+           margin-left: 5px; /* Smaller margin on smaller screens */
+       }
+
+       .nav-item img {
+       height: 1.5rem; /* Fixed height for images */
+       width: auto; /* Width is auto to maintain aspect ratio */
+   }
+   }
+</style>
