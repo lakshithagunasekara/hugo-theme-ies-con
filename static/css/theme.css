@@ -2290,7 +2290,7 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 }
 
 #R-topics {
-    padding-top: 1rem;
+    padding-top: 0;
 }
 
 .term-list ul,
