@@ -6,7 +6,7 @@
 
 <style>
 
-  .custom-footer {
+.custom-footer {
       background-color: #ffffff; /* Adjust the background color as needed */
       padding: 20px 0;
       text-align: center;
@@ -20,36 +20,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px; /* Adds space below the heading and divider before the logos start */
+
 }
 
 .divider {
     flex-grow: 1;
     height: 2px;
     background-color: #ececec; /* Or any color of your choice */
-    margin: 0 5px; /* Adjusts spacing around the heading */
+    margin: 0 5px 20px; /* Adjusts spacing around the heading and adds space below */
 }
 
 .footer-heading {
-  margin: 0; /* Removes default margin from headings */
-  font-size: 1.015625rem;
-  font-weight: 300;
+  margin: 0 -30px 20px 0; /* Ensures footer headings have the same gap as the dividers from the logos */
+  font-size: 1.5rem;
+  font-weight: 400;
 
 }
   
-  .footer-images {
-      display: flex; /* This will align images in a row */
-      justify-content: center; /* Center the images horizontally */
-      flex-wrap: wrap; /* Allows images to wrap to the next line on smaller screens */
-  }
-  
-  .footer-images img {
-      width: 5.25rem;  /* Set a fixed width */
-      height: 100px; /* Set a fixed height */
-      object-fit: contain; /* This will scale the image to fit within the dimensions */
-      margin: 0 10px; /* Maintain some space around images */
-      vertical-align: middle;
-  
-  }
+.footer-images {
+    display: flex; /* This will align images in a row */
+    justify-content: center; /* Center the images horizontally */
+    flex-wrap: wrap; /* Allows images to wrap to the next line on smaller screens */
+    gap: 30px; /* Adds space between logos */
+}
+
+.footer-images img {
+    height: 3rem; /* Set a fixed height to ensure all logos are of the same height */
+    width: auto;  /* Width is automatically adjusted to preserve the original aspect ratio */
+    object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
+    margin-bottom: 10px; /* Maintain vertical space around images */
+    justify-content: center; /* Center the images horizontally across all screen sizes */
+
+}
   
     </style>
   

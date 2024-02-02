@@ -47,8 +47,10 @@
    }
 
    .nav-item img {
-       height: 2rem; /* Fixed height for images */
+       height: 53px; /* Fixed height for images */
        width: auto; /* Width is auto to maintain aspect ratio */
+       object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
+
    }
 
    /* Responsive adjustments */
@@ -58,8 +60,10 @@
        }
 
        .nav-item img {
-       height: 1.5rem; /* Fixed height for images */
+       height: 30px; /* Fixed height for images */
        width: auto; /* Width is auto to maintain aspect ratio */
+       object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
+
    }
    }
 </style>
