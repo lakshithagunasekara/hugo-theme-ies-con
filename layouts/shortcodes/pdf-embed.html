@@ -5,8 +5,18 @@
 
 
 <style>
-.iframe-container {
-    position: relative;
-}
-
-</style>
+    .iframe-container {
+        position: relative;
+        width: 100%; /* Default to full width */
+        height: 0; /* Default to 0, will be overridden if height is provided */
+        padding-bottom: 56.25%; /* Aspect ratio padding for responsiveness, adjust as needed */
+    }
+    
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
