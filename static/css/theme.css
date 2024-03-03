@@ -280,6 +280,10 @@ dd {
     margin: 0 auto;
 }
 
+#R-footer.footerFooter.showFooter p {
+    text-align: center; /* Override text-align: justify; with the desired alignment */
+}
+
 #R-footer > hr:first-child {
     margin-top: 0;
 }
@@ -1045,7 +1049,7 @@ tbody > tr:nth-child(even) > td {
 }
 
 #R-topbar {
-    min-height: 3rem;
+    min-height: 5rem;
     position: relative;
     z-index: 170;
 }
@@ -1057,6 +1061,7 @@ tbody > tr:nth-child(even) > td {
     flex-basis: 100%;
     flex-direction: row;
     height: 100%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .topbar-button {

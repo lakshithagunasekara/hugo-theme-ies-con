@@ -33,13 +33,18 @@
     #slideshow {
         position: relative;
         margin: auto;
+        max-width: 1120px; /* Maximum width of the slideshow */
+        height: auto; /* Adjust height automatically */
+
     }
 
     /* Style for slides container */
     .slides-container {
+        position: relative; 
         width: 100%;
-        height: 100%;
+        padding-top: (460 / 1120 * 100%);
         overflow: hidden;
+        height: auto; /* Adjust height automatically */
     }
 
     /* Style for each slide */
@@ -64,6 +69,7 @@
         cursor: pointer;
         position: absolute;
         top: 50%;
+        transform: translateY(-50%); /* Adjust vertical alignment */
         width: auto;
         padding: 16px;
         margin-top: -22px;
@@ -93,13 +99,14 @@
     }    
     
     
-    .next {
-        right: 0;
+    .prev {
+        left: 0;
         border-radius: 3px 0 0 3px;
     }
 
-    .prev {
-        left: 0;
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
     }
 
     /* Style for dots container */
@@ -132,7 +139,11 @@
             height: auto; /* Adjust height automatically */
             aspect-ratio: 1120 / 460; /* Maintain aspect ratio */
         }
-        
+
+        #slideshow, .slides-container {
+            height: auto; /* Ensure the container can grow with the slide */
+        }   
+
         .large-text {
             font-size: 18px; /* Slightly smaller */
         }
