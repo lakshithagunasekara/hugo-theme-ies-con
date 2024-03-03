@@ -1,6 +1,5 @@
         </div>
         {{- partial "custom-footer.html" . }}
-      </div><!-- .main-content-wrapper -->
       </main><!-- #R-body-inner -->
 {{- partial "custom-comments.html" . }}
     </div><!-- #R-body -->
@@ -10,6 +9,5 @@
     <script src="{{"js/perfect-scrollbar.min.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" defer></script>
 {{- partial "dependencies.html" (dict "page" . "location" "footer" "outputFormat" $outputFormat) }}
     <script src="{{"js/theme.js" | relURL}}{{ if not .Site.Params.disableAssetsBusting }}?{{ now.Unix }}{{ end }}" defer></script>
-</div><!-- .full-page -->
   </body>
 </html>

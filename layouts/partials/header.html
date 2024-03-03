@@ -70,8 +70,6 @@
     {{- partial "dependencies.html" (dict "page" . "location" "header" "outputFormat" $outputFormat) }}
   </head>
   <body class="mobile-support {{ $outputFormat }}{{- if .Site.Params.disableInlineCopyToClipBoard }} disableInlineCopyToClipboard{{ end }}{{- if .Site.Params.disableHoverBlockCopyToClipBoard }} disableHoverBlockCopyToClipBoard{{ end }}" data-url="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}">
-    <div class="full-page">
-      <div class="main-content-wrapper">
         <div id="R-body" class="default-animation">
           <div id="R-body-overlay"></div>
           <nav id="R-topbar">

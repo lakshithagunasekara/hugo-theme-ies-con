@@ -114,6 +114,8 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: row-reverse;
     font-size: 1.015625rem;
     font-weight: 300;
     height: 100%;
@@ -1134,15 +1136,29 @@ html[dir="rtl"] .topbar-button-next i {
     flex-grow: 1;
     margin: 0;
     padding: 0 1rem;
+    font-size: 28px; /* Sets a larger font size */
+    /* You might also consider adding some color or other styling to make it stand out as a title */
+    color: #0082ba; /* Example color */
+    font-family: 'Roboto', sans-serif; /* Uses Roboto font with a sans-serif fallback */
+
 }
-@media screen and (max-width: 47.999rem) {
+
+@media screen and (max-width: 768px) {
     .topbar-breadcrumbs {
-        /* we just hide the breadcrumbs instead of display: none;
-        this makes sure that the breadcrumbs are still usable for
-        accessability */
-        visibility: hidden;
+        font-size: 21px; /* Slightly smaller font size */
+        padding: 0 0.75rem; /* Adjust padding */
     }
 }
+
+/* Adjustments for small screens, e.g., smartphones */
+@media screen and (max-width: 480px) {
+    .topbar-breadcrumbs {
+        font-size: 15px; /* Even smaller font size for small screens */
+        padding: 0 0.5rem; /* Further reduce padding */
+    }
+}
+
+
 
 .breadcrumbs {
     min-width: 0;
