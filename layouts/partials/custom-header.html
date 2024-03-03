@@ -22,7 +22,6 @@
 </div>
 
  <style>
-   /* Style for the entire navbar */
    .navbar {
        display: flex;
        justify-content: space-between;
@@ -34,12 +33,14 @@
         list-style-type: none; /* Removes the bullets */
         padding: 0; /* Removes default padding */
         margin: 0; /* Removes default margin */
+        display: flex; /* Ensures nav items are in a row */
     }
     
    /* Style for the right header (image links) */
    .nav-flex-icons {
        display: flex;
        align-items: center;
+       justify-content: flex-end; /* Aligns items to the right, keeping them in one row */
    }
 
    .nav-item {
@@ -47,23 +48,23 @@
    }
 
    .nav-item img {
-       height: 53px; /* Fixed height for images */
+       height: auto; /* Height is auto to maintain aspect ratio */
        width: auto; /* Width is auto to maintain aspect ratio */
-       object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
-
+       max-height: 40px; /* Maximum height for images */
    }
 
    /* Responsive adjustments */
    @media (max-width: 768px) {
+       .nav-flex-icons {
+           justify-content: center; /* Centers items to ensure they fit in one row on smaller screens */
+       }
+
        .nav-item {
-           margin-left: 5px; /* Smaller margin on smaller screens */
+           margin-left: 5px; /* Smaller margin between items */
        }
 
        .nav-item img {
-       height: 30px; /* Fixed height for images */
-       width: auto; /* Width is auto to maintain aspect ratio */
-       object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
-
-   }
+           max-height: 30px; /* Smaller maximum height for images to ensure they fit */
+       }
    }
 </style>
