@@ -88,8 +88,9 @@
 
     .small-text {
         font-size: 14px; /* Adjust as needed */
-    }       
-
+    }    
+    
+    
     .next {
         right: 0;
         border-radius: 3px 0 0 3px;
@@ -122,6 +123,36 @@
     .active, .dot:hover {
         background-color: #717171;
     }
+
+    @media (max-width: 768px) {
+        .large-text {
+            font-size: 18px; /* Slightly smaller */
+        }
+
+        .small-text {
+            font-size: 12px; /* Slightly smaller */
+        }
+
+        .dot {
+            display: none; /* Hides the dots on mobile devices */
+        }
+    }
+
+    /* Media query for devices with a max width of 480px */
+    @media (max-width: 480px) {
+        .large-text {
+            font-size: 16px; /* Even smaller */
+        }
+
+        .small-text {
+            font-size: 10px; /* Even smaller */
+        }
+
+        .dot {
+            display: none; /* Hides the dots on mobile devices */
+        }
+    }
+
 </style>
 
 <script>
