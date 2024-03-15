@@ -10,12 +10,12 @@
    <ul class="nav navbar-nav nav-flex-icons ml-auto">
      <li class="nav-item">
        <a href="http://www.ieee-ies.org/" target="_blank" rel="noopener" class="navbar-brand">
-         <img src="/images/ies.png" height="40" alt="">
+         <img src="/images/ies.png" height="40" alt="" class="nav-image">
        </a>
      </li>
      <li class="nav-item">
        <a href="https://www.ieee.org/" target="_blank" rel="noopener" class="navbar-brand">
-         <img src="/images/ieee.png" height="40" alt="" style="margin-right: 1.4em;">
+         <img src="/images/ieee.png" height="40" alt="" style="margin-right: 1.4em;" class="nav-image">
        </a>
      </li>
    </ul>
@@ -63,5 +63,21 @@
            margin-left: 5px; /* Smaller margin between items */
        }
 
+       .nav-item img {
+           max-height: 40px; /* Even smaller images on small screens */
+       }
+
    }
+
+   @media (max-width: 576px) {
+       .nav-item img {
+           max-height: 35px; /* Smallest images on extra small screens */
+       }
+    }
+
+    @media (max-width: 370px) {
+       .nav-item img {
+           max-height: 25px; /* Smallest images on extra small screens */
+       }
+    }
 </style>
