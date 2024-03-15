@@ -302,6 +302,7 @@ dd {
 
 #R-sidebar ul li {
     padding: 0;
+    margin-bottom: 0.4rem;
 }
 
 #R-sidebar ul li.visited + span {
@@ -2035,8 +2036,10 @@ article ul > li > input[type="checkbox"]:checked::before {
 }
 
 #R-sidebar ul.morespace > li > * {
-    padding-bottom: .25rem;
-    padding-top: .25rem;
+    /* padding-bottom: .25rem;
+    padding-top: .25rem; */
+    padding-bottom: 0rem;
+    padding-top: 0rem;
 }
 #R-sidebar ul.morespace > li > ul {
     padding-bottom: 0;
@@ -2044,14 +2047,14 @@ article ul > li > input[type="checkbox"]:checked::before {
 }
 
 #R-sidebar ul.enlarge > li > :is( a, span ) {
-    font-size: 1.1rem;
-    line-height: 2rem;
+    font-size: 1.25rem;
+    line-height: 1rem;
 }
 #R-sidebar ul.enlarge > li > a > .read-icon {
     margin-top: .5rem;
 }
 #R-sidebar ul.enlarge > li > ul > li:last-child {
-    padding-bottom: 1rem;
+    padding-bottom: 0.25rem;
 }
 
 #R-sidebar ul ul {
@@ -2091,8 +2094,8 @@ article ul > li > input[type="checkbox"]:checked::before {
     z-index: 2;
 }
 #R-sidebar ul.collapsible-menu.enlarge > li > label {
-    font-size: 1.1rem;
-    line-height: 2rem;
+    font-size: 1.25rem;
+    line-height: 1rem;
 }
 
 #R-sidebar ul.collapsible-menu > li > label:after {
@@ -2311,7 +2314,8 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 }
 
 #R-topics {
-    padding-top: 0;
+    /* padding-top: 0; */
+    padding: 1rem;
 }
 
 .term-list ul,
@@ -2325,4 +2329,16 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 }
 .term-list ul > li ~ li:before {
     content: " | "
+}
+
+#R-sidebar.morespace.collapsible-menu > li > li {
+    margin-bottom: .2rem;
+}
+
+#R-topics ul.enlarge li ul.morespace.collapsible-menu > li {
+    margin-bottom: .025rem;
+}
+
+#R-topics ul > li > ul {
+    margin-bottom: 0.4rem;
 }

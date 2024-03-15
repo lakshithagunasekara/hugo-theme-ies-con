@@ -74,9 +74,9 @@
           <div id="R-body-overlay"></div>
           <nav id="R-topbar">
             <div class="topbar-wrapper">
-              <div class="topbar-area topbar-area-start" data-area="start">
+              <!-- <div class="topbar-area topbar-area-start" data-area="start">
                 {{- partial "topbar/area/start.html" . }}
-              </div>
+              </div> -->
               {{- $showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb)) }}
               {{- if $showBreadcrumb }}
               <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
