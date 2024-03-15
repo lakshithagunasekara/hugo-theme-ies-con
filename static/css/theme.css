@@ -503,6 +503,16 @@ body:not(.print) #R-body .narrow .flex-block-wrapper {
     }
 }
 
+@media screen and (max-width: 48rem) { /* 768px / 16px (default browser font-size) = 48rem */
+    #R-body .flex-block-wrapper {
+        max-width: calc(100% - 2 * 1.5rem); /* Reducing the side margins */
+        width: 100%;
+    }
+    body:not(.print) #R-body .narrow .flex-block-wrapper {
+        max-width: calc(100% - 2 * 1.5rem); /* Adjust this value as needed */
+    }
+}
+
 body:not(.print) #R-body-inner.narrow {
     padding: 2rem 9.75rem;
 }
