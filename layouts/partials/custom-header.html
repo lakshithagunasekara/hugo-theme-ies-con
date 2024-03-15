@@ -69,6 +69,10 @@
       .nav-item {
            margin-left: 5px; /* Smaller margin between items */
        }
+       
+       .nav-item:first-child img {
+       margin-right: 10px; /* Add a margin to the right of the first logo */
+      }
 
        .nav-item img {
            max-height: 35px; /* Smallest images on extra small screens */
@@ -76,6 +80,10 @@
     }
 
     @media (max-width: 370px) {
+
+      .nav-item:first-child img {
+       margin-right: 10px; /* Add a margin to the right of the first logo */
+   }
 
        .nav-item img {
            max-height: 25px; /* Smallest images on extra small screens */
