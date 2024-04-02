@@ -303,6 +303,7 @@ dd {
 #R-sidebar ul li {
     padding: 0;
     margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
 }
 
 #R-sidebar ul li.visited + span {
@@ -2325,7 +2326,7 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
 
 #R-topics {
     /* padding-top: 0; */
-    padding: 1rem;
+    padding-left: 1rem;
 }
 
 .term-list ul,

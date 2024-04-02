@@ -40,7 +40,7 @@
               {{- if (ne .Site.Params.landingPageURL nil) }}
                 {{- warnf "%q: UNSUPPORTED usage of 'landingPageURL' config parameter found, remove it and optionally overwrite the `logo.html` partial to provide a link if it should not point to the project's home page; see https://mcshelby.github.io/hugo-theme-relearn/basics/migration#420" .File.Filename }}
               {{- end }}
-              <li data-nav-id="index.html" class=""><a class="padding" href="./index.html">Home</a></li>
+              <li data-nav-id="/index.html" class=""><a class="padding" href="/index.html">Home</a></li>
             {{- end }}
             {{- $pages := partial "pageHelper/pagesBy.html" (dict "page" .Site.Home "hidden" true) }}
             {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default false }}
