@@ -49,7 +49,9 @@
             {{- end }}
           </ul>
           {{- if not .Site.Params.disableSearch }}
+          <div class="seararea">
           {{ partial "search.html" . }}
+          </div>  
                   {{- end }}
         </div>
         
