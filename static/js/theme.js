@@ -1519,7 +1519,6 @@ ready( function(){
     initOpenapi();
     initMenuScrollbar();
     initToc();
-    initAnchorClipboard();
     initCodeClipboard();
     fixCodeTabs();
     restoreTabSelections();
