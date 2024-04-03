@@ -141,6 +141,7 @@
       {{- $showvisitedlinks := .showvisitedlinks }}
       {{- $alwaysopen := .alwaysopen }}
       {{- $currentFileRelPermalink := .currentnode.RelPermalink }}
+      {{ $includeTOC := default true (or .Params.includeTOC .Site.Params.includeTOC) }}
       {{- with .sect }}
         {{- $isSelf := eq .RelPermalink $currentFileRelPermalink }}
         {{- $isAncestor := and (not $isSelf) (.IsAncestor $currentNode) }}
@@ -158,8 +159,10 @@
             {{- $subHidden := and $relearnIsSubHiddenFrom (not $.showhidden) (not $isSelfSub) (not $isAncestorSub) }}
             {{- $numberOfVisibleChildren = add $numberOfVisibleChildren (int (not $subHidden)) }}
           {{- end }}
+          {{ $toc := .TableOfContents }}
+          {{ $liCount := len (findRE "<li>\\s*<.*?>.+?</li>" $toc) }}
           {{- safeHTML .Params.head }}
-          {{- if $numberOfVisibleChildren }}
+          {{- if or (gt $numberOfVisibleChildren 0) (and $includeTOC (gt $liCount 0)) }}
             {{- $title := or .Params.menuTitle .LinkTitle .Title }}
             {{- $url := partial "relLangPrettyUglyURL.hugo" (dict "to" .) }}
             {{- $isCollapsible := or (.Params.collapsibleMenu | default .Site.Params.collapsibleMenu) (not $url) }}
@@ -169,7 +172,8 @@
           <li data-nav-id="{{ $url }}" class="{{if $isActive }}active {{end}}{{if (or $isSelf $isAncestor) }}parent {{end}}{{if $currentAlwaysopen}}alwaysopen{{end}}">{{ if $isCollapsible }}<input type="checkbox" id="R-section-{{ $pageHash }}" aria-controls="R-subsections-{{ $pageHash }}"{{ if $isOpen }} checked{{ end }}><label for="R-section-{{ $pageHash }}"><i class="fas fa-chevron-down"></i><i class="fas fa-chevron-right"></i><span class="a11y-only">{{ T "Submenu" $title }}</span></label>{{ end }}{{ if $url }}<a class="padding" href="{{ $url }}">{{ else }}<span class="padding">{{ end }}
             {{- partial "menu-pre.html" . }}{{ $title }}{{ partial "menu-post.html" . }}
             {{- if $url }}{{ if $showvisitedlinks }}<i class="fas fa-check read-icon"></i>{{ end }}</a>{{ else }}</span>{{ end }}<ul id="R-subsections-{{ $pageHash }}" class="morespace collapsible-menu">
-            {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default true }}
+              {{ if $includeTOC }}<div class="page-toc" data-page-url="{{ $url }}">{{ .TableOfContents }}</div>{{ end }}
+              {{- $defaultAlwaysopen := .Site.Params.alwaysopen | default true }}
             {{- range $pages }}
               {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks "alwaysopen" $defaultAlwaysopen }}
             {{- end }}</ul></li>
@@ -183,3 +187,23 @@
         {{- end }}
       {{- end }}
     {{- end }}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Use querySelectorAll to potentially select multiple ToC containers if they exist
+      document.querySelectorAll(".page-toc").forEach(function(tocContainer) {
+        // Read the base URL from the data attribute
+        var baseURL = tocContainer.getAttribute('data-page-url');
+        
+        if (baseURL) {
+          // Select all anchor tags within the current ToC container
+          tocContainer.querySelectorAll("a").forEach(function(link) {
+            var currentHref = link.getAttribute("href");
+            if (currentHref.startsWith("#")) {
+              link.setAttribute("href", baseURL + currentHref);
+            }
+          });
+        }
+      });
+    });
+    </script>

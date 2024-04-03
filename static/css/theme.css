@@ -2175,6 +2175,26 @@ html[dir="rtl"] #R-sidebar ul.collapsible-menu > li > label > i.fa-chevron-right
     transform: scaleX(-1);
 }
 
+/* Target the ToC container, adjust .page-toc if your class or ID is different */
+.page-toc ul, .page-toc ol {
+    list-style-type: none; /* Optional: removes the default list styling */
+    padding-left: 0rem; /* Remove default padding */
+}
+
+.page-toc li {
+    margin-left: 1em; /* Adjust base indentation */
+    font-size: 1.25em; /* Base font size for top-level items */
+
+}
+
+.page-toc li ul li {
+    margin-left: 2em; /* Indent second-level items */
+}
+
+.page-toc li ul li ul li {
+    margin-left: 3em; /* Indent third-level items */
+}
+
 .columnize{
     column-count: 2;
 }
