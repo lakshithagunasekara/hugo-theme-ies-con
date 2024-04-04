@@ -1,11 +1,16 @@
 {{ $type := .Get "type" }}
 {{ $url := .Get "url" | absURL }}
+{{ $hideToolBar := .Get "hideToolBar" }}
 
 <div class="iframe-container" style="width: {{ .Get "width" }}; height: {{ .Get "height" }};">
     {{ if eq $type "external" }}
     <iframe src="https://docs.google.com/gview?url={{ .Get "url" | absURL }}&embedded=true" style="width:100%; height:100%;" frameborder="0"></iframe>
     {{ else if eq $type "local" }}
-    <iframe src="{{ $url }}" style="width:100%; height:100%;" type="application/pdf" frameborder="0"></iframe>
+        {{ if eq $hideToolBar "true" }}
+        <iframe src="{{ $url }}#toolbar=0" style="width:100%; height:100%;" type="application/pdf" frameborder="0"></iframe>
+        {{ else }}
+        <iframe src="{{ $url }}" style="width:100%; height:100%;" type="application/pdf" frameborder="0"></iframe>
+        {{ end }}
     {{ else }}
     <p>Invalid type specified for PDF embed.</p>
     {{ end }}
