@@ -1,111 +1,103 @@
-<!-- Partial intended to be overwritten with tags loaded at the end of the page loading (usually for Javascript)
-<script>
-  console.log("running some javascript");
-</script>
--->
+<footer>
+  <div class="footer-content">
+      <!-- Logo and Powered By Notice -->
+      <div class="footer-section wic-section">
+          <img class="logo" src="/images/wic.png" alt="IEEE IES Logo" >
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-section social-section">
+          <a href="https://www.facebook.com/IndustrialElectronicsSociety/" target="_blank" class="social-icon">
+              <img src="https://www.ieee-ies.org/modules/mod_ieeesocialmedia/icons/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://twitter.com/ieee_ies" target="_blank" class="social-icon">
+              <img src="https://www.ieee-ies.org/modules/mod_ieeesocialmedia/icons/twitter.png" alt="Twitter">
+          </a>
+          <a href="https://www.linkedin.com/groups/3124640" target="_blank" class="social-icon">
+              <img src="https://www.ieee-ies.org/modules/mod_ieeesocialmedia/icons/linkedin.png" alt="LinkedIn">
+          </a>
+          <a href="https://www.youtube.com/channel/UCKg8GNii0Q-ieXE56AXosGg/featured" target="_blank" class="social-icon">
+              <img src="https://www.ieee-ies.org/modules/mod_ieeesocialmedia/icons/youtube.png" alt="YouTube">
+          </a>
+          <a class="btn btn-primary" href="https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=MEMIE013">Join IEEE IES</a>
+      </div>
+
+      <!-- Footer Bottom Text -->
+      <div class="footer-section">
+          <p class="sitename">IEEE Industrial Electronics Society</p>
+          <p>© Copyright 2024 IEEE - All rights reserved. A not-for-profit organization, IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity.</p>
+      </div>
+  </div>
+</footer>
+
+
 
 <style>
-
-.custom-footer {
-      background-color: #ffffff; /* Adjust the background color as needed */
-      padding: 20px 0;
-      text-align: center;
-  }
-  
-  .footer-section {
-      margin-bottom: 20px;
-  }
-  
-  .section-heading {
+footer .wic-section {
     display: flex;
+    justify-content: flex-start; /* Ensures content is aligned to the left */
+    width: 100%;
+}
+
+footer .wic-section .logo {
+    display: block;
+    margin-left: 0 !important; /* Forces margin left to be 0, ignoring other rules */
+    margin-right: auto;
+
+    width: auto; /* Keeps the logo's width auto to maintain natural aspect ratio */
+    max-height: 170px; /* Adjust logo height as necessary */
+    text-align: left;
+}
+
+/* Ensure any inherited or global center alignment is overridden */
+footer .wic-section {
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px; /* Adds space below the heading and divider before the logos start */
-
+    justify-content: flex-start !important; /* Explicitly align items to the start */
 }
 
-.divider {
-    flex-grow: 1;
-    height: 2px;
-    background-color: #ececec; /* Or any color of your choice */
-    margin: 0 5px 20px; /* Adjusts spacing around the heading and adds space below */
+.social-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.footer-heading {
-  margin: 0 -30px 20px 0; /* Ensures footer headings have the same gap as the dividers from the logos */
-  font-size: 1.5rem;
-  font-weight: 400;
-
-}
-  
-.footer-images {
-    display: flex; /* This will align images in a row */
-    justify-content: center; /* Center the images horizontally */
-    flex-wrap: wrap; /* Allows images to wrap to the next line on smaller screens */
-    gap: 30px; /* Adds space between logos */
+.social-icon {
+    margin-right: 15px;
+    width: 34px;
+    height: 34px;
 }
 
-.footer-images img {
-    height: 3rem; /* Set a fixed height to ensure all logos are of the same height */
-    width: auto;  /* Width is automatically adjusted to preserve the original aspect ratio */
-    object-fit: contain; /* Ensures that the image is scaled to maintain its aspect ratio while fitting within the element's content box */
-    margin-bottom: 10px; /* Maintain vertical space around images */
-    justify-content: center; /* Center the images horizontally across all screen sizes */
+.social-icon img {
+    width: 100%;
+    height: auto;
+}
 
+.btn-primary {
+    background-color: #ec8c00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #ec8c00;
 }
 
 @media (max-width: 768px) {
-  .footer-images img {
-    height: 2.5rem; /* Smaller height for mobile devices */
-  }
+    .footer-content {
+        flex-direction: column;
+    }
 }
 
-@media (max-width: 480px) {
-  .footer-images img {
-    height: 2.5rem; /* Smaller height for mobile devices */
-  }
+@media (max-width: 600px) {
+    .social-icon, .btn-primary {
+        margin-bottom: 10px;
+    }
 }
-  
-    </style>
-  
-  <footer class="custom-footer">
-    {{ with .Site.Params.footer.organizersPath }}
-    {{ $organizersPath := . }}
-    {{ $organizersImages := (readDir (printf "static/%s" $organizersPath)) }}
-    {{ if gt (len $organizersImages) 0 }}
-    <div class="footer-section">
-        <div class="section-heading">
-            <span class="divider"></span>
-            <h3 class="footer-heading">Organized by</h3>
-            <span class="divider"></span>
-        </div>
-        <div class="footer-images">
-            {{ range $organizersImages }}
-            <img src="{{ printf "/%s/%s" $organizersPath .Name | relURL }}" alt="Organizer Logo">
-            {{ end }}
-        </div>
-    </div>
-    {{ end }}
-    {{ end }}
-  
-    {{ with .Site.Params.footer.sponsorsPath }}
-    {{ $sponsorsPath := . }}
-    {{ $sponsorsImages := (readDir (printf "static/%s" $sponsorsPath)) }}
-    {{ if gt (len $sponsorsImages) 0 }}
-    <div class="footer-section">
-        <div class="section-heading">
-            <span class="divider"></span>
-            <h3 class="footer-heading">Sponsored by</h3>
-            <span class="divider"></span>
-        </div>
-        <div class="footer-images">
-            {{ range $sponsorsImages }}
-            <img src="{{ printf "/%s/%s" $sponsorsPath .Name | relURL }}" alt="Sponsor Logo">
-            {{ end }}
-        </div>
-    </div>
-    {{ end }}
-    {{ end }}
-</footer>
 
-  
+
+</style>
